@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+      <style media="screen" style="text/css">
+      p:first-child{
+        margin-bottom: 100px !important;
+      }
+      /*PRODUCT PAGE*/
+      .thumbnails li {
+        margin-bottom: 10px;
+      }
+      #product-details {
+        text-align: left;
+      }
+      #product-details h2 {
+        font-size: 20px;
+        font-weight: 900;
+        padding-bottom: 15px;
+      }
+      #image-gallery,
+      #buy-box {
+        margin-bottom: 40px;
+      }
+      #buy-box .product-title {
+        margin-top: 0;
+      }
+      #buy-box .price-was,
+      #buy-box .price-savings,
+      #buy-box .price-selling,
+      #buy-box .sku{
+        display: block; 
+        margin-bottom: 8px;
+      }
+
+      #buy-box .price-was,
+      #buy-box .price-savings {
+        font-size: smaller;
+      }
+      #buy-box .price-selling {
+        color: black;
+        font-size: 24px;
+        font-weight: 500;
+      }
+      #buy-box .sku {
+        font-size: 10px;
+        padding-bottom: 10px;
+      }
+      .add-to-bag {
+        display: flex;
+        justify-content: flex-start;
+      }
+      .selection-wrapper,
+      .btn-submit {
+        height: 50px; 
+        margin-right: 20px;
+        padding: 0 20px;  
+      }
+      .qty-minus,
+      .qty-add {
+        line-height: 50px;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        use-select: none;
+        cursor: pointer;
+      }
+      .qty-minus:hover,
+      .qty-add:hover {
+        background: #f2f2f2;
+      }
+      .add-to-bag .btn-submit {
+        border: none;
+        font-size: smaller;
+        color: white;
+        background: #72a4d2;
+      }
+      .add-to-bag .btn-submit:hover {
+        background: #6692bc;
+      }
+      .selection-wrapper  {
+        border: 1px solid #eaeaea;
+        text-align: center;
+      }
+      .selector .title {
+        font-size: 0.5em;
+        padding-top: 5px;
+      }
+
+      #product-description {
+
+      }
+      #product-description p{
+        margin-bottom: 40px;
+      }
+      </style>
+
+      <script>
+        $( document ).ready(function() {
+          console.log( "Ready to update quantity!" );
+
+
+          var quantity = parseInt( $(".qty .value").html(), 10);
+          console.log( "We currently have quantity of "+quantity+" and it is of type: "+ typeof quantity );
+          // steps
+          // if add is pressed, quantity = quantity plus 1, set html.
+          $(".qty-add").click(function(){
+            console.log("increasing quantity by 1");
+            quantity += 1;
+            console.log(quantity);
+            $(".qty .value").html(quantity);
+          });
+
+          // if minus is pressed, if quantity is > 1, quantity = quantity - 1, set html.
+          $(".qty-minus").click(function(){
+            if(quantity > 1) {
+            console.log("decreasing quantity by 1");
+              quantity -= 1;              
+              $(".qty .value").html(quantity);
+            }
+          });
+
+
+        });
+      </script>
+    </head>
+    <body>
+
+      <h1 class="text-center">Hello, world!</h1>
+      <div class="text-center">
+        <p>This will hopefully add and subtract quantity listed for adding item(s) to shopping bag or something similar.</p>
+        <p>Minus button will not function if quantity is at 1</p>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+
+
+
+
+            <!-- **************************************** -->
+            <form action="" class="add-to-bag">
+              <div class="selection-wrapper qty-minus">-</div>
+              <div class="selection-wrapper">
+                <div class="selector qty">
+                  <div class="title">QTY</div>
+                  <div class="value">1</div>
+                </div>
+
+              </div>
+              <div class="selection-wrapper qty-add">+</div>
+
+              <button type="submit" class="btn-submit">ADD TO BAG &nbsp;&nbsp;<i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+
+
+            </form>           
+            <!-- **************************************** -->
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+    </body>
+    </html>
